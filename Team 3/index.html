@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberStop -Gegen Cybermobbing</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background: #111827;
+            color: white;
+            line-height: 1.7;
+        }
+        header{
+            background: #172238;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a{
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0,3s;
+        }
+        nav a:hover {
+            color: #ff5365;
+        }
+        .hero {
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            padding: 70px 10%;
+            background: linear-gradient(
+                90deg, #111827 10%,
+                rgba(17, 24, 39, 0.88) 65%,
+                rgba(69,36,61,0.7)
+                )
+                url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3")
+                center;
+        }
+        .hero-content{
+            max-width: 700px;
+        }
+        .small-title{
+            color: #ff5365;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+        .hero h1 span{
+            color: #ff5365;
+        }
+        .hero h2{
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+        .hero p{
+            color: #d1d5db;
+            margin-bottom: 25px;
+        }
+        .button{
+            display: inline-block;
+            background: #ff5365;
+            color: white;
+            padding: 13px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .butten:hover{
+            background: #e52d48;
+            transform: translateY(-3px);
+        }
+        .content{
+            padding: 80px 10%;
+            text-align: center;
+        }
+        .content h2,.help h2{
+            font-size: 34px;
+            color: #ff6475;
+            margin-bottom: 20px;
+        }
+        .description{
+            color: #cbd5e1;
+            max-width: 750px;
+            margin: 0 auto 40px;
+        }
+        .cards{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+        .card{
+            background: #1e2b42;
+            padding: 30px 20px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+        .card:hover{
+            transform: translateY(-8px);
+            background: #293953;
+        }
+        .emoji{
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        .card h3{
+            color: #ff6475;
+            margin-bottom: 10px;
+        }
+        .dark{
+            background: #172238;
+        }
+        .effects{
+            max-width: 650px;
+            margin: auto;
+        }
+        .effects p{
+            background: #24334c;
+            margin: 15px 0;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: left;
+        }
+        .tips{
+            max-width: 750px;
+            margin: auto;
+        }
+        .tip{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #1e2b42;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: left;
+        }
+        .tip span{
+            color: #ff5365;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .help{
+            background: linear-gradient(
+                135deg,
+                #812e49,
+                #31213d
+            );
+            text-align: center;
+            padding: 80px 10%;
+        }
+        .help h2{
+            color: white;
+        }
+        .help p{
+            max-width: 650px;
+            margin: 15px auto;
+        }
+        .phone{
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff6475;
+            margin: 20px;
+        }
+        footer{
+            background: #0b1120;
+            padding: 25px;
+            text-align: center;
+            color: #9ca3af;
+        }
+        header{
+            flex-direction: column;
+            gap: 15px;
+        }
+        nav{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+        nav a{
+            margin: 0;
+            font-size: 14px;
+        }
+        .hero h1{
+            font-size: 34px;
+        }
+        .cards{
+            grid-template-columns: repeat(2,1fr);
+        }
+        .content{
+            padding: 55px 6%;
+        }
+        .cards{
+            grid-template-columns: 1fr;
+        }
+        .hero h1{
+            font-size: 29px;
+        }
+        .hero h2{
+            font-size: 21px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <nav>
+        <a href="#start">Startseite</a>
+        <a href="#was">Was ist das?</a>
+        <a href="#folgen">Folgen</a>
+        <a href="#hilfe">Hilfe</a>
+    </nav>
+    </header>
+    <section class="hero" id="start">
+        <div class="hero-content">
+            <p class="small-title">
+                GEMEINSAM GEGEN HASS
+            </p>
+            <h1>
+                STOPPT <span>CYBERMOBBING!</span>
+            </h1>
+            <h2>
+                Deine Worte haben Macht.
+            </h2>
+            <p>
+                Belidigungen im Internet sind kein Spaß.
+                Jeder Mensch verdient Respekt- 
+                online und offline.
+            </p>
+            <a href="#was" class="button">
+                Mehr erfahren
+            </a>
+        </div>
+
+    </section>
+
+    <section class="content" id="was">
+    <h2> Was ist Cybermobbing?</h2>
+    <p class="description"> 
+        Cybermobbing bedeutet, dass Menschen über das Internet,soziale Netzwerke oder Messeger absichtlich beleidigt, bedroht oder bloßgestellt werden.
+    </p>
+    <div class="cards">
+        <div class="card">
+        <div class="emoji">💬</div>
+        <h3> Beleidigungen</h3>
+        <p>
+            Menschen werden durch Nachrichten oder Kommentare verletzt.
+        </p>
+        </div>
+
+        <div>
+            <div class="card">
+                <div class="emoji">📷</div>
+                <h3>Bloßstellung</h3>
+                <p>
+                    Peinliche Bilder oder Videos werden ohne Zustimmung verbreitet.
+                </p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🛑</div>
+            <h3>Ausgrenzung</h3>
+            <p>
+                Personen werden absichtlich aus Gruppen ausgeschlossen.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">⚠</div>
+            <h3>Bedrohungen</h3>
+            <p>
+                Menschen erhalten bedrohliche oder einschüchternde Nachrichten.
+            </p>
+        </div>
+    </div>
+       
+</section>
+
+<section class="content dark" id="Folgen">
+    <h2> Welche Folgen hat Cybermobbing?</h2>
+    <p class="description">
+        Cybermobbing kann das Leben Betroffener stark beeinflussen.
+    </p>
+    <div class="effects">
+        <p>Traurigkeit und Einsamkeit</p>
+        <p>Angst und Unsicherherit</p>
+        <p>Verlust des Selbstvertrauens</p>
+        <p>Schlafprobleme</p>
+    </div>
+</section>
+
+<section class="content">
+    <h2>Was kannst du dagegen tun?</h2>
+    <div class="tips">
+        <div class="tip">
+            <span>01</span>
+            <p>Beleidigende Nachrichten nicht beantworten.</p>
+        </div>
+
+        <div class="tip">
+            <span>02</span>
+            <p>Beweise durch Screenshots sichern.</p>
+        </div>
+
+        <div class="tip">
+            <span>03</span>
+            <p>Täter blockieren und Inhalte melden</p>
+        </div>
+
+        <div class="tip">
+            <span>04</span>
+            <p>Mit einer Vertauensperson sprechen.</p>
+        </div>
+</section>
+
+<section class="help" id="hilfe">
+    <h2>Du bist nicht allein!</h2>
+    <p>
+        Wenn du von Cybermobbing betroffen bist, musst du nicht alleine damit umgehen können. Hole dir Unterstützung!
+    </p>
+
+    <div class="phone">
+        116 111
+    </div>
+    <p>
+        Nummer gegen Kummer
+    </p>
+    <a href="https://www.nummergegenkummer.de/" target="_blank" class="button">
+        Hilfe finden
+    </a>
+
+</section>
+
+<footer>
+    <p>
+        Gemeinsam gegen Cybermobbing
+    </p>
+    <p> M. und M.</p>
+</footer>
+
+    </body>
+
+</body> 

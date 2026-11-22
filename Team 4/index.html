@@ -1,0 +1,772 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VS Studios | Deine Daten. Deine Entscheidung.</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #080b16;
+    --card: #11172a;
+    --blue: #6385ff;
+    --purple: #a36bff;
+    --text: #f4f6ff;
+    --muted: #9ba7c3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    background: rgba(8,11,22,.85);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid #ffffff12;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.hero {
+    min-height: 100vh;
+    padding: 180px 10% 100px;
+    display: flex;
+    align-items: center;
+    background:
+    radial-gradient(ellipse at 80% 40%, #5438b933, transparent 45%),
+    radial-gradient(ellipse at 10% 80%, #2868ff20, transparent 40%);
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 30px;
+    color: #a9bcff;
+    background: #6385ff18;
+    border: 1px solid #6385ff55;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(42px, 7vw, 82px);
+    line-height: 1.08;
+    letter-spacing: -4px;
+    margin-bottom: 25px;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #6f91ff, #bd83ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 620px;
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 10px;
+    background: linear-gradient(110deg, var(--blue), var(--purple));
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px #6385ff44;
+}
+
+section {
+    padding: 100px 10%;
+    scroll-margin-top: 75px;
+}
+
+.section-tag {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    margin: 12px 0 20px;
+    letter-spacing: -1.5px;
+}
+
+.intro {
+    max-width: 680px;
+    color: var(--muted);
+    margin-bottom: 45px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: linear-gradient(145deg, #151d34, #0e1425);
+    border: 1px solid #ffffff12;
+    border-radius: 18px;
+    padding: 28px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #6385ff88;
+}
+
+.icon {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.card p, .card li {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.card ul {
+    padding-left: 20px;
+}
+
+.highlight {
+    color: #91aaff;
+    font-weight: 700;
+}
+
+.dark-section {
+    background: #0d1221;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.good {
+    border-top: 3px solid #42d69b;
+}
+
+.bad {
+    border-top: 3px solid #ff657b;
+}
+
+.good h3 { color: #42d69b; }
+.bad h3 { color: #ff8292; }
+
+.comparison .card {
+    min-height: 250px;
+}
+
+.comparison ul {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.simulator {
+    background: linear-gradient(145deg, #151d34, #11172a);
+    border: 1px solid #ffffff15;
+    border-radius: 20px;
+    padding: 35px;
+    max-width: 750px;
+}
+
+.toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px 0;
+    border-bottom: 1px solid #ffffff12;
+    gap: 15px;
+}
+
+.toggle-row small {
+    color: var(--muted);
+    display: block;
+}
+
+input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--blue);
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 25px;
+    padding: 20px;
+    background: #6385ff17;
+    border-radius: 12px;
+    color: #b6c5ff;
+}
+
+.tips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.tip {
+    padding: 25px;
+    background: #151d34;
+    border-radius: 15px;
+    border: 1px solid #ffffff12;
+}
+
+.tip span {
+    color: var(--blue);
+    font-weight: 800;
+    font-size: 13px;
+}
+
+.tip p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.quiz-box {
+    background: #151d34;
+    padding: 35px;
+    border-radius: 18px;
+    max-width: 700px;
+}
+
+.quiz-box p {
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.quiz-option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 14px;
+    margin: 10px 0;
+    background: #202a44;
+    color: white;
+    border: 1px solid #ffffff15;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.quiz-option:hover {
+    background: #354875;
+}
+
+#quiz-result {
+    margin-top: 20px;
+    color: #a9bcff;
+}
+
+footer {
+    text-align: center;
+    padding: 35px;
+    color: var(--muted);
+    border-top: 1px solid #ffffff12;
+    font-size: 13px;
+}
+
+@media(max-width: 700px) {
+    nav {
+        padding: 15px 5%;
+    }
+
+    nav a {
+        margin-left: 9px;
+        font-size: 10px;
+    }
+
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 75px 6%;
+    }
+
+    h1 {
+        letter-spacing: -2px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">VS <span>STUDIOS.</span></div>
+    <div>
+        <a href="#cookies">Cookies</a>
+        <a href="#standort">Standort</a>
+        <a href="#vergleich">Vergleich</a>
+        <a href="#tipps">Datenschutz</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-content">
+        <div class="tag">DIGITALE WELT · DATENSCHUTZ · TECHNOLOGIE</div>
+
+        <h1>
+            Deine Daten.<br>
+            <span class="gradient">Deine Entscheidung.</span>
+        </h1>
+
+        <p>
+            Webseiten und Smartphones sammeln täglich Informationen
+            über uns. Doch was wird gespeichert? Wer kann darauf
+            zugreifen? Und wo liegt die Grenze zwischen Komfort
+            und Überwachung?
+        </p>
+
+        <a href="#cookies" class="btn">Jetzt entdecken →</a>
+    </div>
+</header>
+
+<section id="cookies">
+    <div class="section-tag">01 / Cookies verstehen</div>
+    <h2>Was sind Cookies?</h2>
+
+    <p class="intro">
+        Cookies sind kleine Textinformationen, die Webseiten
+        im Browser speichern. Sie helfen dabei, Einstellungen
+        und bestimmte Informationen wiederzuerkennen.
+    </p>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">🍪</div>
+            <h3>Was wird gespeichert?</h3>
+            <p>
+                Zum Beispiel Spracheinstellungen, Warenkörbe,
+                Login-Informationen oder eine zufällige
+                Kennung, mit der ein Browser wiedererkannt wird.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚙️</div>
+            <h3>Wie funktioniert das?</h3>
+            <p>
+                Beim Besuch einer Webseite kann der Browser
+                einen Cookie erhalten. Beim nächsten Besuch
+                sendet er ihn passend zur Webseite wieder mit.
+                Dadurch kann die Seite Einstellungen erkennen.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔍</div>
+            <h3>Welche Arten gibt es?</h3>
+            <p>
+                <span class="highlight">Notwendige Cookies:</span>
+                sorgen für grundlegende Funktionen.
+                <br><br>
+                <span class="highlight">Analyse- und Werbe-Cookies:</span>
+                können das Nutzungsverhalten auswerten
+                und Werbung personalisieren.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="standort" class="dark-section">
+    <div class="section-tag">02 / Standortdienste</div>
+    <h2>Wo bist du gerade?</h2>
+
+    <p class="intro">
+        Standortdienste bestimmen mithilfe verschiedener
+        Technologien, wo sich ein Smartphone oder anderes
+        Gerät ungefähr befindet.
+    </p>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">🛰️</div>
+            <h3>GPS</h3>
+            <p>
+                Das Gerät empfängt Signale von Satelliten.
+                Daraus kann es seine Position berechnen.
+                GPS funktioniert besonders gut im Freien.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📶</div>
+            <h3>WLAN und Mobilfunk</h3>
+            <p>
+                WLAN-Netzwerke und Mobilfunkmasten können
+                ebenfalls zur Standortbestimmung beitragen.
+                Die Genauigkeit hängt von der Umgebung ab.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📍</div>
+            <h3>App-Berechtigungen</h3>
+            <p>
+                Apps können nach einer Standortfreigabe fragen.
+                Je nach Einstellung dürfen sie den Standort
+                nur während der Nutzung oder auch im
+                Hintergrund abrufen.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="vergleich">
+    <div class="section-tag">03 / Kritisch beurteilen</div>
+    <h2>Nützlich oder übergriffig?</h2>
+
+    <p class="intro">
+        Nicht jede Datensammlung ist automatisch schlecht.
+        Entscheidend ist, welche Daten gesammelt werden,
+        wofür sie genutzt werden und ob man selbst zustimmt.
+    </p>
+
+    <div class="comparison">
+        <div class="card good">
+            <h3>✓ Hilfreiche Nutzung</h3>
+            <ul>
+                <li>Navigation mit aktuellen Verkehrsdaten</li>
+                <li>Gespeicherter Warenkorb beim Online-Shopping</li>
+                <li>Anzeige des lokalen Wetters</li>
+                <li>Automatisches Einloggen</li>
+                <li>Schutz vor betrügerischen Zugriffen</li>
+            </ul>
+        </div>
+
+        <div class="card bad">
+            <h3>✕ Übergriffige Nutzung</h3>
+            <ul>
+                <li>Standort wird ohne nachvollziehbaren Grund dauerhaft erfasst</li>
+                <li>Werbung verfolgt Nutzer über viele Webseiten</li>
+                <li>Daten werden ohne ausreichende Transparenz weitergegeben</li>
+                <li>Unnötige Berechtigungen werden verlangt</li>
+                <li>Persönliche Interessen werden umfangreich ausgewertet</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="dark-section">
+    <div class="section-tag">04 / Interaktives Beispiel</div>
+    <h2>Welche Daten gibst du frei?</h2>
+
+    <p class="intro">
+        Probiere die Simulation aus. Wähle aus, welche
+        Berechtigungen eine Beispiel-Webseite erhalten soll.
+        Du siehst anschließend, welche Informationen sie
+        dadurch nutzen könnte.
+    </p>
+
+    <div class="simulator">
+        <h3>Deine Datenschutz-Einstellungen</h3>
+
+        <div class="toggle-row">
+            <div>
+                <strong>Notwendige Cookies</strong>
+                <small>Für grundlegende Funktionen</small>
+            </div>
+            <input type="checkbox" checked disabled>
+        </div>
+
+        <div class="toggle-row">
+            <div>
+                <strong>Analyse-Cookies</strong>
+                <small>Auswertung deines Nutzungsverhaltens</small>
+            </div>
+            <input type="checkbox" id="analytics">
+        </div>
+
+        <div class="toggle-row">
+            <div>
+                <strong>Personalisierte Werbung</strong>
+                <small>Werbung anhand möglicher Interessen</small>
+            </div>
+            <input type="checkbox" id="ads">
+        </div>
+
+        <div class="toggle-row">
+            <div>
+                <strong>Standortzugriff</strong>
+                <small>Ungefährer oder genauer Standort</small>
+            </div>
+            <input type="checkbox" id="location">
+        </div>
+
+        <div id="result">
+            Aktuell sind nur notwendige Cookies aktiviert.
+            Du gibst wenige zusätzliche Informationen frei.
+        </div>
+    </div>
+</section>
+
+<section id="tipps">
+    <div class="section-tag">05 / Selbst schützen</div>
+    <h2>So schützt du deine Daten</h2>
+
+    <p class="intro">
+        Mit wenigen Einstellungen kannst du selbst bestimmen,
+        welche Informationen Apps und Webseiten erhalten.
+    </p>
+
+    <div class="tips">
+        <div class="tip">
+            <span>01 / BROWSER</span>
+            <h3>Cookies kontrollieren</h3>
+            <p>
+                Überprüfe die Cookie-Einstellungen deines Browsers.
+                Lehne unnötige Cookies ab und lösche regelmäßig
+                gespeicherte Websitedaten.
+            </p>
+        </div>
+
+        <div class="tip">
+            <span>02 / SMARTPHONE</span>
+            <h3>Standort beschränken</h3>
+            <p>
+                Erlaube den Standortzugriff nur Apps, die ihn
+                wirklich benötigen. Nutze nach Möglichkeit
+                die Option „Nur während der Nutzung“.
+            </p>
+        </div>
+
+        <div class="tip">
+            <span>03 / BERECHTIGUNGEN</span>
+            <h3>Apps überprüfen</h3>
+            <p>
+                Kontrolliere regelmäßig, welche Apps Zugriff
+                auf Kamera, Mikrofon, Kontakte und Standort haben.
+            </p>
+        </div>
+
+        <div class="tip">
+            <span>04 / PRIVATSPHÄRE</span>
+            <h3>Weniger teilen</h3>
+            <p>
+                Gib online nur die Informationen an,
+                die tatsächlich notwendig sind.
+                Vermeide unnötige persönliche Angaben.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="dark-section">
+    <div class="section-tag">06 / Wissen testen</div>
+    <h2>Hast du alles verstanden?</h2>
+
+    <p class="intro">
+        Teste dein Wissen mit drei kurzen Fragen.
+    </p>
+
+    <div class="quiz-box">
+        <p id="question">1. Was speichern Cookies beispielsweise?</p>
+
+        <button class="quiz-option" onclick="answer(0,0)">
+            A: Nur Bilder
+        </button>
+
+        <button class="quiz-option" onclick="answer(1,0)">
+            B: Einstellungen und bestimmte Kennungen
+        </button>
+
+        <button class="quiz-option" onclick="answer(2,0)">
+            C: Ausschließlich Passwörter
+        </button>
+
+        <div id="quiz-result"></div>
+    </div>
+</section>
+
+<footer>
+    <div class="logo">VS <span>STUDIOS.</span></div>
+    <p>Deine Daten. Deine Entscheidung.</p>
+    <p>Schulprojekt · Digitale Welt und Datenschutz</p>
+    <p>© 2026 VS Studios</p>
+</footer>
+
+<script>
+const fields = ["analytics", "ads", "location"];
+
+function updateSimulation() {
+    let active = fields.filter(id =>
+        document.getElementById(id).checked
+    );
+
+    let result = document.getElementById("result");
+
+    if (active.length === 0) {
+        result.innerHTML =
+        "🛡️ Nur notwendige Cookies sind aktiviert. " +
+        "Es werden in dieser Simulation keine zusätzlichen " +
+        "Analyse-, Werbe- oder Standortfunktionen freigegeben.";
+        return;
+    }
+
+    let messages = [];
+
+    if (active.includes("analytics"))
+        messages.push("Das Nutzungsverhalten könnte analysiert werden.");
+
+    if (active.includes("ads"))
+        messages.push("Interessen könnten für personalisierte Werbung genutzt werden.");
+
+    if (active.includes("location"))
+        messages.push("Die Beispiel-App könnte deinen Standort verwenden.");
+
+    result.innerHTML =
+    "⚠️ Du hast zusätzliche Berechtigungen ausgewählt:<br><br>" +
+    messages.join("<br>");
+}
+
+fields.forEach(id => {
+    document.getElementById(id).addEventListener(
+        "change", updateSimulation
+    );
+});
+
+const questions = [
+    {
+        q: "1. Was speichern Cookies beispielsweise?",
+        a: [
+            "A: Nur Bilder",
+            "B: Einstellungen und bestimmte Kennungen",
+            "C: Ausschließlich Passwörter"
+        ],
+        correct: 1
+    },
+    {
+        q: "2. Welche Technologie kann den Standort bestimmen?",
+        a: [
+            "A: GPS",
+            "B: Bildschirmhelligkeit",
+            "C: Lautsprecher"
+        ],
+        correct: 0
+    },
+    {
+        q: "3. Was ist eine gute Datenschutzmaßnahme?",
+        a: [
+            "A: Allen Apps Zugriff geben",
+            "B: Alle Cookies immer akzeptieren",
+            "C: Berechtigungen regelmäßig prüfen"
+        ],
+        correct: 2
+    }
+];
+
+let current = 0;
+let score = 0;
+
+function answer(selected, questionIndex) {
+    if (questionIndex !== current) return;
+
+    const result = document.getElementById("quiz-result");
+
+    if (selected === questions[current].correct) {
+        score++;
+        result.innerHTML = "✓ Richtig!";
+    } else {
+        result.innerHTML =
+        "✕ Leider falsch. " +
+        "Richtige Antwort: " +
+        questions[current].a[questions[current].correct];
+    }
+
+    current++;
+
+    if (current < questions.length) {
+        setTimeout(() => {
+            document.getElementById("question").innerText =
+            questions[current].q;
+
+            document.querySelectorAll(".quiz-option").forEach((btn, i) => {
+                btn.innerText = questions[current].a[i];
+                btn.onclick = () => answer(i, current);
+            });
+
+            result.innerHTML = "";
+        }, 1200);
+    } else {
+        setTimeout(() => {
+            document.querySelector(".quiz-box").innerHTML =
+            "<h3>Quiz abgeschlossen!</h3>" +
+            "<p>Du hast " + score + " von 3 Fragen richtig beantwortet.</p>" +
+            "<button class='btn' onclick='location.reload()'>Nochmal versuchen</button>";
+        }, 1200);
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="ks-frame" x1="12" y1="24" x2="116" y2="104" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8BE0FF"/>
+      <stop offset="0.5" stop-color="#3B9EFF"/>
+      <stop offset="1" stop-color="#1466D4"/>
+    </linearGradient>
+    <linearGradient id="ks-lens" x1="48" y1="40" x2="84" y2="92" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2FBFF"/>
+      <stop offset="0.35" stop-color="#6FD0FF"/>
+      <stop offset="1" stop-color="#0A84FF"/>
+    </linearGradient>
+    <radialGradient id="ks-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(66 62) rotate(90) scale(28)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- eye outline -->
+  <path d="M8 64 C28 28 52 18 78 26 C98 32 114 46 120 64 C114 82 98 96 78 102 C52 110 28 100 8 64 Z" fill="url(#ks-frame)"/>
+  <!-- inner white -->
+  <path d="M24 64 C38 40 58 34 78 40 C94 45 106 54 112 64 C106 74 94 83 78 88 C58 94 38 88 24 64 Z" fill="#F7FBFF"/>
+  <!-- pupil -->
+  <circle cx="68" cy="64" r="22" fill="url(#ks-lens)"/>
+  <circle cx="68" cy="64" r="22" fill="url(#ks-glow)"/>
+  <circle cx="76" cy="56" r="6" fill="#FFFFFF" opacity="0.9"/>
+  <!-- network nodes -->
+  <circle cx="102" cy="34" r="5" fill="#8BE0FF"/>
+  <circle cx="120" cy="64" r="5" fill="#5AC8FA"/>
+  <circle cx="102" cy="94" r="5" fill="#3B9EFF"/>
+  <path d="M90 48 L102 34 M90 80 L102 94 M96 64 L120 64" stroke="#0B3F8C" stroke-width="3" stroke-linecap="round"/>
+  <path d="M90 48 L102 34 M90 80 L102 94 M96 64 L120 64" stroke="#8BE0FF" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
